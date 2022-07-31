@@ -7,11 +7,9 @@
     @apply text-base;
   }
   .plus-minus-icon {
-    @apply text-2xl h-[30px]  w-[30px] flex justify-center items-center border-gray-500 border font-bold mx-1 my-0;
+    @apply text-2xl h-[30px]  w-[30px] flex justify-center items-center border-gray-500 border font-bold mx-1 my-0 cursor-pointer;
   }
-  .common-input {
-    @apply border-2 border-gray-500 font-base text-right p-2 rounded-md;
-  }
+
 }
 
 /* ///////////////////// */
@@ -33,4 +31,6 @@
   border-color: goldenrod;
   outline: none;
 }
-
+.row:last-child{
+  border-bottom: none;
+}

@@ -1,0 +1,31 @@
+.initialData {
+  border: 2px solid #ddd;
+  grid-template-areas: "simulation expenses bonifications";
+  grid-template-columns: 1fr 1fr 1fr; 
+}
+.initialData .simulation {
+  grid-area: simulation;
+}
+.initialData .bonifications {
+  grid-area: bonifications;
+}
+.initialData .expenses {
+  grid-area: expenses;
+}
+@media (max-width: 1500px) {
+  .initialData {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "simulation expenses"
+      "bonifications bonifications";
+  }
+}
+@media (max-width: 1000px) {
+  .initialData {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "simulation"
+      "expenses"
+      "bonifications";
+  }
+}

@@ -4,33 +4,23 @@ import React from "react";
 import Bonifications from "../Bonifications/index";
 import Resume from "components/Resume";
 import SimulationData from "components/SimulationData";
-
-import {
-  CalculatorWrapper,
-  InitialData,
-  ResumeData,
-} from "./Calculator.styled";
+import "./Calculator.css";
 import withSimulator from "hoc/withSimulator";
 import ExpensesData from "components/ExpensesData";
 
 const Calculator = () => {
   return (
     <>
-      
-      {/* <CalculatorWrapper> */}
-      <div className="grid gap-4  grid-rows-1 grid-cols-1 " >
-
-        <InitialData>
+      <div className="grid gap-4  grid-rows-1 grid-cols-1 ">
+        <div className="initialData bg:white grid gap-4 p-4 ">
           <SimulationData />
           <ExpensesData />
           <Bonifications />
-        </InitialData>
-        <ResumeData>
+        </div>
+        <div className="border-2 border-gray-200 gap-4 grid grid-cols-1 grid-rows-1 bg:white p-4">
           <Resume />
-        </ResumeData>
+        </div>
       </div>
-      {/* </CalculatorWrapper> */}
-      
     </>
   );
 };

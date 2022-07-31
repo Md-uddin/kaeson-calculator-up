@@ -1,8 +1,6 @@
 import React from "react";
 import withSimulator from "hoc/withSimulator";
-
 import NumberFormat from "react-number-format";
-import { Raw, ResumeContainer, Title } from "./Resume.styled";
 
 const Resume = ({
   price,
@@ -26,18 +24,18 @@ const Resume = ({
   return (
     <>
       <h2>Resumen de cuotas</h2>
-      <ResumeContainer>
-        <Raw>
-          <Title>Nº de cuotas ({years} años)</Title>
+      <div className="bg-white">
+        <div className="row flex p-2 w-full border-gray-300 justify-between hover:bg-gray-50">
+          <h4 className="row-title">Nº de cuotas ({years} años)</h4>
           <NumberFormat
             value={years * 12}
             displayType={"text"}
             suffix=" cuotas"
           />
-        </Raw>
+        </div>
 
-        <Raw>
-          <Title>Hipoteca solicitada ({percentage}%)</Title>
+        <div className="row flex p-2 w-full border-gray-300 justify-between hover:bg-gray-50">
+          <h4 className="row-title">Hipoteca solicitada ({percentage}%)</h4>
           <NumberFormat
             value={(percentage * price) / 100}
             displayType={"text"}
@@ -46,22 +44,9 @@ const Resume = ({
             suffix=" €"
             decimalScale={5}
           />
-        </Raw>
-
-        {/* <Raw>
-          <Title>Interés primer año ({minInterest.toFixed(2)}%)</Title>
-          <NumberFormat
-            value={minInterest / 12}
-            displayType={"text"}
-            decimalSeparator=","
-            thousandSeparator="."
-            suffix=" %"
-            decimalScale={5}
-          />
-        </Raw> */}
-
-        <Raw>
-          <Title>Cuota 1er año</Title>
+        </div>
+        <div className="row flex p-2 w-full border-gray-300 justify-between hover:bg-gray-50">
+          <h4 className="row-title">Cuota 1er año</h4>
           <NumberFormat
             value={quoteFirstYear}
             displayType={"text"}
@@ -71,42 +56,18 @@ const Resume = ({
             decimalScale={2}
             fixedDecimalScale={true}
             renderText={(value, props) => (
-              <div
-                style={{
-                  fontWeight: "bold",
-                  color: "green",
-                  fontSize: "1.3rem",
-                }}
-                {...props}
-              >
+              <div className="text-bold text-green-500 text-xl" {...props}>
                 {value}
               </div>
             )}
           />
-        </Raw>
-
-        {/* <Raw>
-          <Title>
-            Interés resto de años (
-            {(maxInterest - totalBonifications).toFixed(2)}
-            %)
-          </Title>
-          <NumberFormat
-            value={(maxInterest - totalBonifications) / 12}
-            displayType={"text"}
-            decimalSeparator=","
-            thousandSeparator="."
-            suffix=" %"
-            decimalScale={5}
-          />
-        </Raw> */}
-
-        <Raw>
-          <Title>
+        </div>
+        <div className="row flex p-2 w-full border-gray-300 justify-between hover:bg-gray-50">
+          <h4 className="row-title">
             Resto cuotas (bonificaciones aplicadas:
             {totalBonifications.toFixed(2)}
             %)
-          </Title>
+          </h4>
           <NumberFormat
             value={quoteRestYears}
             displayType={"text"}
@@ -115,22 +76,15 @@ const Resume = ({
             suffix=" €"
             decimalScale={2}
             renderText={(value, props) => (
-              <div
-                style={{
-                  fontWeight: "bold",
-                  color: "orange",
-                  fontSize: "1.3rem",
-                }}
-                {...props}
-              >
+              <div className="font-bold text-orange-500 text-xl" {...props}>
                 {value}
               </div>
             )}
           />
-        </Raw>
+        </div>
 
-        <Raw>
-          <Title>Gastos compraventa</Title>
+        <div className="row flex p-2 w-full border-gray-300 justify-between hover:bg-gray-50">
+          <h4 className="row-title">Gastos compraventa</h4>
           <NumberFormat
             value={totalExpenses}
             displayType={"text"}
@@ -139,9 +93,9 @@ const Resume = ({
             suffix=" €"
             decimalScale={2}
           />
-        </Raw>
-        <Raw>
-          <Title>Total pagos primer año</Title>
+        </div>
+        <div className="row flex p-2 w-full border-gray-300 justify-between hover:bg-gray-50">
+          <h4 className="row-title">Total pagos primer año</h4>
           <NumberFormat
             value={getTotalPaidFirstYear()}
             displayType={"text"}
@@ -150,10 +104,12 @@ const Resume = ({
             suffix=" €"
             decimalScale={2}
           />
-        </Raw>
+        </div>
 
-        <Raw>
-          <Title>Total pagos resto de los {years - 1} años</Title>
+        <div className="row flex p-2 w-full border-gray-300 justify-between hover:bg-gray-50">
+          <h4 className="row-title">
+            Total pagos resto de los {years - 1} años
+          </h4>
           <NumberFormat
             value={getTotalPaidRestYears()}
             displayType={"text"}
@@ -162,10 +118,10 @@ const Resume = ({
             suffix=" €"
             decimalScale={2}
           />
-        </Raw>
+        </div>
 
-        <Raw style={{ backgroundColor: "#f0f0f0" }}>
-          <Title>Total de la fiesta</Title>
+        <div className="row flex p-2 w-full border-gray-300 justify-between  hover:bg-gray-50 bg-gray-50">
+          <h4 className="row-title">Total de la fiesta</h4>
           <div>
             <NumberFormat
               value={getTotalPaidFirstYear() + getTotalPaidRestYears()}
@@ -175,7 +131,7 @@ const Resume = ({
               suffix=" €"
               decimalScale={2}
               renderText={(value, props) => (
-                <div style={{ fontWeight: "bold" }} {...props}>
+                <div className=" font-bold" {...props}>
                   {value}
                 </div>
               )}
@@ -188,21 +144,14 @@ const Resume = ({
               suffix=" €"
               decimalScale={2}
               renderText={(value, props) => (
-                <div
-                  style={{
-                    color: "red",
-                    fontSize: "0.85rem",
-                    textAlign: "right",
-                  }}
-                  {...props}
-                >
+                <div className="text-red-500 text-xs text-right" {...props}>
                   +{value}
                 </div>
               )}
             />
           </div>
-        </Raw>
-      </ResumeContainer>
+        </div>
+      </div>
     </>
   );
 };
