@@ -1,16 +1,17 @@
-import GlobalStyle from "GlobalStyle";
 
-import Calculator from "components/Calculator";
-import Layout from "components/Layout";
+
+// import Calculator from "components/Calculator";
+// import Layout from "components/Layout";
 
 function App() {
   return (
-    <>
-      <GlobalStyle />
-      <Layout>
-        <Calculator />
-      </Layout>
-    </>
+    <div className="text-green-500 mx-5">
+      {/* <GlobalStyle /> */}
+      {/* <Layout>
+        <Calculator /> */}
+      {/* </Layout> */}
+      this is app .js
+    </div>
   );
 }
 
