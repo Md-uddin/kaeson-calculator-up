@@ -1,0 +1,29 @@
+.bonificationWrapper tr {
+  height: 57px;
+}
+.bonificationWrapper td {
+  border-bottom: 1px solid #ccc;
+  padding: 0 0.35rem;
+}
+.bonificationWrapper tfoot td {
+  background-color: #f0f0f0;
+}
+
+.bonificationWrapper input[type="text"] {
+  border-radius: 5px;
+  border: 3px solid grey;
+  font-size: 1rem;
+  padding: 0.5rem;
+  text-align: right;
+  width: 110px;
+}
+@media (max-width: 978px) {
+  .bonificationWrapper input[type="text"] {
+    width: 110px;
+  }
+}
+
+.bonificationWrapper input[type="text"] :hover {
+  border-color: goldenrod;
+  outline: none;
+}

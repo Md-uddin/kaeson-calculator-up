@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import NumberFormat from "react-number-format";
-
 import withSimulator from "hoc/withSimulator";
-import { BonificationsCreateWrapper } from "./BonificationsCreate.styled";
+import "./styles.css";
 
 const BonificationsCreate = ({ addBonification }) => {
   const initialState = {
@@ -23,7 +22,10 @@ const BonificationsCreate = ({ addBonification }) => {
   return (
     <section>
       <h4>Añadir bonificación</h4>
-      <BonificationsCreateWrapper key={bonification.key}>
+      <div
+        className="flex bg-white bonificationsCreateWrapper"
+        key={bonification.key}
+      >
         <input
           type="text"
           placeholder="Descripción bonificación"
@@ -53,7 +55,7 @@ const BonificationsCreate = ({ addBonification }) => {
         >
           Añadir
         </button>
-      </BonificationsCreateWrapper>
+      </div>
     </section>
   );
 };

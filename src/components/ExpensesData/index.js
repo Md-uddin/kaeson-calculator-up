@@ -1,7 +1,7 @@
 import React from "react";
 import withSimulator from "hoc/withSimulator";
 import NumberFormat from "react-number-format";
-import { SimulationDataContainer, Raw, Title } from "./ExpensesData.styled";
+
 
 const ExpensesData = ({ expenses, updateExpense }) => {
   return (

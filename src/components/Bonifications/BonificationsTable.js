@@ -1,7 +1,7 @@
 import withSimulator from "hoc/withSimulator";
 import React from "react";
 import NumberFormat from "react-number-format";
-import { Icon, IconsContainer } from "./Bonifications.styled";
+
 
 const BonificationsTable = ({
   bonifications,
@@ -19,7 +19,7 @@ const BonificationsTable = ({
       <tbody>
         {bonifications.map((bonification) => (
           <tr key={bonification.key}>
-            <td width="40" style={{ textAlign: "center" }}>
+            <td width="40" className="center">
               <input
                 type="checkbox"
                 name={bonification.name}
@@ -35,10 +35,11 @@ const BonificationsTable = ({
               />
             </td>
             <td>{bonification.name}</td>
-            <td width="200" style={{ textAlign: "right" }}>
-              <div style={{ display: "flex", alignItems: "center" }}>
-                <IconsContainer>
-                  <Icon
+            <td width="200" className="text-right">
+              <div className="flex items-center">
+                <div className="flex sm:mr-4 mr-2">
+                  <div
+                    className="plus-minus-icon"
                     onClick={() => {
                       const newBonifications = bonifications.map((e) =>
                         e.key === bonification.key
@@ -49,8 +50,9 @@ const BonificationsTable = ({
                     }}
                   >
                     +
-                  </Icon>{" "}
-                  <Icon
+                  </div>{" "}
+                  <div
+                    className="plus-minus-icon"
                     onClick={() => {
                       const newBonifications = bonifications.map((e) =>
                         e.key === bonification.key
@@ -61,8 +63,8 @@ const BonificationsTable = ({
                     }}
                   >
                     -
-                  </Icon>
-                </IconsContainer>
+                  </div>
+                </div>
 
                 <NumberFormat
                   value={bonification.value}
@@ -82,7 +84,7 @@ const BonificationsTable = ({
                 />
               </div>
             </td>
-            <td width="100" style={{ textAlign: "right" }}>
+            <td width="100" className="text-center">
               <span onClick={() => removeBonification(bonification)}>
                 Borrar
               </span>
