@@ -7,10 +7,13 @@ const ExpensesData = ({ expenses, updateExpense }) => {
   return (
     <section className="expenses">
       <h2>Gastos compraventa</h2>
-      <SimulationDataContainer>
+      <div className="bg-white">
         {expenses.map((expense, index) => (
-          <Raw key={expense.key}>
-            <Title>{expense.name}</Title>
+          <div
+            className="flex justify-between items-center p-2 border-b border-gray-300 w-full hover:bg-gray-50 h-[57px] row"
+            key={expense.key}
+          >
+            <div className="row-title">{expense.name}</div>
             <NumberFormat
               value={expense.value}
               onValueChange={(values) => {
@@ -26,9 +29,9 @@ const ExpensesData = ({ expenses, updateExpense }) => {
               decimalScale={2}
               fixedDecimalScale={true}
             />
-          </Raw>
+          </div>
         ))}
-      </SimulationDataContainer>
+      </div>
     </section>
   );
 };
