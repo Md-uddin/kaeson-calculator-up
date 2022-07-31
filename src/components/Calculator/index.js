@@ -1,7 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React from "react";
 
-import Bonifications from "components/Bonifications";
+import Bonifications from "../Bonifications/index";
 import Resume from "components/Resume";
 import SimulationData from "components/SimulationData";
 
