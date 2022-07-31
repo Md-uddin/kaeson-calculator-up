@@ -17,17 +17,20 @@ const Calculator = () => {
   return (
     <>
       
-      <CalculatorWrapper>
+      {/* <CalculatorWrapper> */}
+      <div className="grid gap-4  grid-rows-1 grid-cols-1 " >
+
         <InitialData>
           <SimulationData />
           <ExpensesData />
           <Bonifications />
         </InitialData>
-
         <ResumeData>
           <Resume />
         </ResumeData>
-      </CalculatorWrapper>
+      </div>
+      {/* </CalculatorWrapper> */}
+      
     </>
   );
 };

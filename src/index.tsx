@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import "./styles/globalStyles.css";
+import "./styles/tailwindStyles.css";
 import { Provider } from "react-redux";
 
 import App from "./App";

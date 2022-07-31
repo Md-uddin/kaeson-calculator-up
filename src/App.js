@@ -4,11 +4,9 @@ import Layout from "components/Layout";
 function App() {
   return (
     <>
-
       <Layout>
         <Calculator />
       </Layout>
-     
     </>
   );
 }

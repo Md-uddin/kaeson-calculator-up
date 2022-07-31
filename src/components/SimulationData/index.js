@@ -1,13 +1,6 @@
 import React from "react";
 import withSimulator from "hoc/withSimulator";
 import NumberFormat from "react-number-format";
-import {
-  SimulationDataContainer,
-  Raw,
-  Title,
-  IconsContainer,
-  Icon,
-} from "./SimulationData.styled";
 
 const SimulationData = ({
   price,
@@ -23,16 +16,26 @@ const SimulationData = ({
 }) => {
   return (
     <section className="simulation">
-      <h2 className="text-blue-500 ">Información básica</h2>
-      <p>Rellena los datos de tu hipoteca para obtener una simulación.</p>
-      <SimulationDataContainer>
-        <Raw>
-          <Title>Importe del inmueble</Title>
+      <h2>Información básica</h2>
+      <p className="my-2">Rellena los datos de tu hipoteca para obtener una simulación.</p>
+      <div className="bg:white">
+        <div className="flex justify-between items-center p-2 border-b border-gray-300 w-full hover:bg-gray-50 h-[57px] row">
+          <h5 className="row-title">Importe del inmueble</h5>
           <div style={{ display: "flex", alignItems: "center" }}>
-            <IconsContainer>
-              <Icon onClick={() => setPrice(price + 1000)}>+</Icon>
-              <Icon onClick={() => setPrice(price - 1000)}>-</Icon>
-            </IconsContainer>
+            <div className="flex flex-row items-center md:mr-4 mr-2">
+              <div
+                className="plus-minus-icon"
+                onClick={() => setPrice(price + 1000)}
+              >
+                +
+              </div>
+              <div
+                className="plus-minus-icon"
+                onClick={() => setPrice(price - 1000)}
+              >
+                -
+              </div>
+            </div>
             <NumberFormat
               value={price}
               onValueChange={(values) => setPrice(values.value)}
@@ -42,14 +45,24 @@ const SimulationData = ({
               suffix=" €"
             />
           </div>
-        </Raw>
-        <Raw>
-          <Title>% solicitado a financiar</Title>
+        </div>
+        <div className="flex justify-between items-center p-2 border-b border-gray-300 w-full hover:bg-gray-50 h-[57px] row">
+          <h5 className="row-title">% solicitado a financiar</h5>
           <div style={{ display: "flex", alignItems: "center" }}>
-            <IconsContainer>
-              <Icon onClick={() => setPercentage(percentage + 1)}>+</Icon>
-              <Icon onClick={() => setPercentage(percentage - 1)}>-</Icon>
-            </IconsContainer>
+            <div className="flex flex-row items-center md:mr-4 mr-2">
+              <div
+                className="plus-minus-icon"
+                onClick={() => setPercentage(percentage + 1)}
+              >
+                +
+              </div>
+              <div
+                className="plus-minus-icon"
+                onClick={() => setPercentage(percentage - 1)}
+              >
+                -
+              </div>
+            </div>
             <NumberFormat
               value={percentage}
               onValueChange={(values) => setPercentage(values.value)}
@@ -59,15 +72,25 @@ const SimulationData = ({
               suffix=" %"
             />
           </div>
-        </Raw>
+        </div>
 
-        <Raw>
-          <Title>Duración de la hipoteca</Title>
+        <div className="flex justify-between items-center p-2 border-b border-gray-300 w-full hover:bg-gray-50 h-[57px] row">
+          <h5 className="row-title">Duración de la hipoteca</h5>
           <div style={{ display: "flex", alignItems: "center" }}>
-            <IconsContainer>
-              <Icon onClick={() => setYears(years + 1)}>+</Icon>
-              <Icon onClick={() => setYears(years - 1)}>-</Icon>
-            </IconsContainer>
+            <div className="flex flex-row items-center md:mr-4 mr-2">
+              <div
+                className="plus-minus-icon"
+                onClick={() => setYears(years + 1)}
+              >
+                +
+              </div>
+              <div
+                className="plus-minus-icon"
+                onClick={() => setYears(years - 1)}
+              >
+                -
+              </div>
+            </div>
             <NumberFormat
               value={years}
               onValueChange={(values) => setYears(values.value)}
@@ -77,15 +100,25 @@ const SimulationData = ({
               suffix=" años"
             />
           </div>
-        </Raw>
+        </div>
 
-        <Raw>
-          <Title>Interés bonificado</Title>
+        <div className="flex justify-between items-center p-2 border-b border-gray-300 w-full hover:bg-gray-50 h-[57px] row">
+          <h5 className="row-title">Interés bonificado</h5>
           <div style={{ display: "flex", alignItems: "center" }}>
-            <IconsContainer>
-              <Icon onClick={() => setMinInterest(minInterest + 0.05)}>+</Icon>
-              <Icon onClick={() => setMinInterest(minInterest - 0.05)}>-</Icon>
-            </IconsContainer>
+            <div className="flex flex-row items-center md:mr-4 mr-2">
+              <div
+                className="plus-minus-icon"
+                onClick={() => setMinInterest(minInterest + 0.05)}
+              >
+                +
+              </div>
+              <div
+                className="plus-minus-icon"
+                onClick={() => setMinInterest(minInterest - 0.05)}
+              >
+                -
+              </div>
+            </div>
             <NumberFormat
               value={minInterest}
               onValueChange={(values) => setMinInterest(values.value)}
@@ -97,15 +130,25 @@ const SimulationData = ({
               fixedDecimalScale={true}
             />
           </div>
-        </Raw>
+        </div>
 
-        <Raw>
-          <Title>Interés sin bonificar</Title>
+        <div className="flex justify-between items-center p-2 border-b border-gray-300 w-full hover:bg-gray-50 h-[57px] row">
+          <h5 className="row-title">Interés sin bonificar</h5>
           <div style={{ display: "flex", alignItems: "center" }}>
-            <IconsContainer>
-              <Icon onClick={() => setMaxInterest(maxInterest + 0.05)}>+</Icon>
-              <Icon onClick={() => setMaxInterest(maxInterest - 0.05)}>-</Icon>
-            </IconsContainer>
+            <div className="flex flex-row items-center md:mr-4 mr-2">
+              <div
+                className="plus-minus-icon"
+                onClick={() => setMaxInterest(maxInterest + 0.05)}
+              >
+                +
+              </div>
+              <div
+                className="plus-minus-icon"
+                onClick={() => setMaxInterest(maxInterest - 0.05)}
+              >
+                -
+              </div>
+            </div>
             <NumberFormat
               value={maxInterest}
               onValueChange={(values) => setMaxInterest(values.value)}
@@ -117,8 +160,8 @@ const SimulationData = ({
               fixedDecimalScale={true}
             />
           </div>
-        </Raw>
-      </SimulationDataContainer>
+        </div>
+      </div>
     </section>
   );
 };
