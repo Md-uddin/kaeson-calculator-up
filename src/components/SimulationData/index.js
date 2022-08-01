@@ -16,9 +16,11 @@ const SimulationData = ({
 }) => {
   return (
     <section className="simulation">
-      <h2>Información básica</h2>
-      <p className="my-2">Rellena los datos de tu hipoteca para obtener una simulación.</p>
-      <div className="bg:white">
+      <h2 className="font-bold text-2xl">Información básica</h2>
+      <p className="my-4">
+        Rellena los datos de tu hipoteca para obtener una simulación.
+      </p>
+      <div className="bg-white">
         <div className="flex justify-between items-center p-2 border-b border-gray-300 w-full hover:bg-gray-50 h-[57px] row">
           <h5 className="row-title">Importe del inmueble</h5>
           <div style={{ display: "flex", alignItems: "center" }}>

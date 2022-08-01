@@ -2,11 +2,10 @@ import React from "react";
 import withSimulator from "hoc/withSimulator";
 import NumberFormat from "react-number-format";
 
-
 const ExpensesData = ({ expenses, updateExpense }) => {
   return (
     <section className="expenses">
-      <h2>Gastos compraventa</h2>
+      <h2 className="font-bold text-2xl">Gastos compraventa</h2>
       <div className="bg-white">
         {expenses.map((expense, index) => (
           <div

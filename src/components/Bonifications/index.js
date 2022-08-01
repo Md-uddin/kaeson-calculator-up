@@ -7,7 +7,7 @@ import BonificationsCreate from "components/BonificationsCreate";
 const Bonifications = () => {
   return (
     <section className="bonifications">
-      <h2>Vinculaciones y bonificaciones</h2>
+      <h2 className="font-bold text-2xl">Vinculaciones y bonificaciones</h2>
       <div className="bg-white bonificationWrapper">
         <BonificationsTable />
       </div>

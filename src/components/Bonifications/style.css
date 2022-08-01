@@ -23,7 +23,11 @@
   }
 }
 
-.bonificationWrapper input[type="text"] :hover {
+.bonificationWrapper input[type="text"]:hover {
+  border-color: goldenrod;
+  outline: none;
+}
+.bonificationWrapper input[type="text"]:focus {
   border-color: goldenrod;
   outline: none;
 }

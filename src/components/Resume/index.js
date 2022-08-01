@@ -23,9 +23,9 @@ const Resume = ({
 
   return (
     <>
-      <h2>Resumen de cuotas</h2>
-      <div className="bg-white">
-        <div className="row flex p-2 w-full border-gray-300 justify-between hover:bg-gray-50">
+      <h2 className="font-bold text-2xl ">Resumen de cuotas</h2>
+      <div className="bg-white ">
+        <div className="row flex p-2 w-full border-gray-300  border-b mr-4 justify-between hover:bg-gray-50">
           <h4 className="row-title">Nº de cuotas ({years} años)</h4>
           <NumberFormat
             value={years * 12}
@@ -34,7 +34,7 @@ const Resume = ({
           />
         </div>
 
-        <div className="row flex p-2 w-full border-gray-300 justify-between hover:bg-gray-50">
+        <div className="row flex p-2 w-full border-gray-300  border-b mr-4 justify-between hover:bg-gray-50">
           <h4 className="row-title">Hipoteca solicitada ({percentage}%)</h4>
           <NumberFormat
             value={(percentage * price) / 100}
@@ -45,7 +45,7 @@ const Resume = ({
             decimalScale={5}
           />
         </div>
-        <div className="row flex p-2 w-full border-gray-300 justify-between hover:bg-gray-50">
+        <div className="row flex p-2 w-full border-gray-300  border-b mr-4 justify-between hover:bg-gray-50">
           <h4 className="row-title">Cuota 1er año</h4>
           <NumberFormat
             value={quoteFirstYear}
@@ -62,7 +62,7 @@ const Resume = ({
             )}
           />
         </div>
-        <div className="row flex p-2 w-full border-gray-300 justify-between hover:bg-gray-50">
+        <div className="row flex p-2 w-full border-gray-300  border-b mr-4 justify-between hover:bg-gray-50">
           <h4 className="row-title">
             Resto cuotas (bonificaciones aplicadas:
             {totalBonifications.toFixed(2)}
@@ -83,7 +83,7 @@ const Resume = ({
           />
         </div>
 
-        <div className="row flex p-2 w-full border-gray-300 justify-between hover:bg-gray-50">
+        <div className="row flex p-2 w-full border-gray-300  border-b mr-4 justify-between hover:bg-gray-50">
           <h4 className="row-title">Gastos compraventa</h4>
           <NumberFormat
             value={totalExpenses}
@@ -94,7 +94,7 @@ const Resume = ({
             decimalScale={2}
           />
         </div>
-        <div className="row flex p-2 w-full border-gray-300 justify-between hover:bg-gray-50">
+        <div className="row flex p-2 w-full border-gray-300  border-b mr-4 justify-between hover:bg-gray-50">
           <h4 className="row-title">Total pagos primer año</h4>
           <NumberFormat
             value={getTotalPaidFirstYear()}
@@ -106,7 +106,7 @@ const Resume = ({
           />
         </div>
 
-        <div className="row flex p-2 w-full border-gray-300 justify-between hover:bg-gray-50">
+        <div className="row flex p-2 w-full border-gray-300  border-b mr-4 justify-between hover:bg-gray-50">
           <h4 className="row-title">
             Total pagos resto de los {years - 1} años
           </h4>
@@ -120,7 +120,7 @@ const Resume = ({
           />
         </div>
 
-        <div className="row flex p-2 w-full border-gray-300 justify-between  hover:bg-gray-50 bg-gray-50">
+        <div className="row flex p-2 w-full border-gray-300  border-b mr-4 justify-between   bg-gray-100">
           <h4 className="row-title">Total de la fiesta</h4>
           <div>
             <NumberFormat

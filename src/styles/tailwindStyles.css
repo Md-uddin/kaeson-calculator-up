@@ -9,28 +9,5 @@
   .plus-minus-icon {
     @apply text-2xl h-[30px]  w-[30px] flex justify-center items-center border-gray-500 border font-bold mx-1 my-0 cursor-pointer;
   }
-
 }
 
-/* ///////////////////// */
-.row input {
-  border-radius: 5px;
-  border: 3px solid grey;
-  font-size: 1rem;
-  padding: 0.5rem;
-  text-align: right;
-  @media (max-width: 978px) {
-    width: 110px;
-  }
-}
-.row input:hover {
-  border-color: goldenrod;
-  outline: none;
-}
-.row input:focus {
-  border-color: goldenrod;
-  outline: none;
-}
-.row:last-child{
-  border-bottom: none;
-}
