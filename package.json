@@ -9,6 +9,7 @@
     "@types/node": "^18.6.3",
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
+    "js-to-ts-converter": "^0.18.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-number-format": "^4.8.0",

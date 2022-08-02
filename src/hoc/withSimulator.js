@@ -74,7 +74,7 @@ const withSimulator = (WrappedComponent) => {
 
     return <WrappedComponent {...props} />;
   };
-
+////////
   const mapStateToProps = (state) => {
     const { calculadora } = state;
     const bonificationsValue = calculadora.bonifications.reduce(

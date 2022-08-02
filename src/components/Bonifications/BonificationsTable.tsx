@@ -1,9 +1,22 @@
 import withSimulator from "hoc/withSimulator";
-import React from "react";
+import React, { FC } from "react";
 import NumberFormat from "react-number-format";
 
+interface BonifcationsProps {
+  bonifications: Array<bonificationType>;
+  selectBonification: (param: any) => never;
+  removeBonification: (param: any) => never;
+  updateBonification: (param: any) => never;
+  totalBonifications: number;
+}
 
-const BonificationsTable = ({
+type bonificationType = {
+  active: boolean;
+  key: string;
+  name: string;
+  value: number;
+};
+const BonificationsTable: FC<BonifcationsProps> = ({
   bonifications,
   selectBonification,
   removeBonification,
@@ -15,9 +28,9 @@ const BonificationsTable = ({
   }
 
   return (
-    <table border="0" width="100%" cellSpacing="0" cellPadding="0">
+    <table border={0} width="100%" cellSpacing="0" cellPadding="0">
       <tbody>
-        {bonifications.map((bonification) => (
+        {bonifications.map((bonification: bonificationType) => (
           <tr key={bonification.key}>
             <td width="40" className="center">
               <input
@@ -25,10 +38,13 @@ const BonificationsTable = ({
                 name={bonification.name}
                 checked={bonification.active}
                 onChange={() => {
-                  const newBonifications = bonifications.map((b) =>
-                    b.name === bonification.name
-                      ? { ...b, active: !b.active }
-                      : b
+                  const newBonifications = bonifications.map(
+                    (b: bonificationType) => {
+                      console.log(b);
+                      return b.name === bonification.name
+                        ? { ...b, active: !b.active }
+                        : b;
+                    }
                   );
                   selectBonification(newBonifications);
                 }}
@@ -41,10 +57,11 @@ const BonificationsTable = ({
                   <div
                     className="plus-minus-icon"
                     onClick={() => {
-                      const newBonifications = bonifications.map((e) =>
-                        e.key === bonification.key
-                          ? { ...e, value: e.value + 0.05 }
-                          : e
+                      const newBonifications = bonifications.map(
+                        (e: bonificationType) =>
+                          e.key === bonification.key
+                            ? { ...e, value: e.value + 0.05 }
+                            : e
                       );
                       updateBonification(newBonifications);
                     }}
@@ -54,10 +71,11 @@ const BonificationsTable = ({
                   <div
                     className="plus-minus-icon"
                     onClick={() => {
-                      const newBonifications = bonifications.map((e) =>
-                        e.key === bonification.key
-                          ? { ...e, value: e.value - 0.05 }
-                          : e
+                      const newBonifications = bonifications.map(
+                        (e: bonificationType) =>
+                          e.key === bonification.key
+                            ? { ...e, value: e.value - 0.05 }
+                            : e
                       );
                       updateBonification(newBonifications);
                     }}
@@ -74,10 +92,11 @@ const BonificationsTable = ({
                   decimalScale={2}
                   fixedDecimalScale={true}
                   onValueChange={(values) => {
-                    const newBonifications = bonifications.map((e) =>
-                      e.key === bonification.key
-                        ? { ...e, value: +values.value }
-                        : e
+                    const newBonifications = bonifications.map(
+                      (e: bonificationType) =>
+                        e.key === bonification.key
+                          ? { ...e, value: +values.value }
+                          : e
                     );
                     updateBonification(newBonifications);
                   }}
@@ -94,7 +113,7 @@ const BonificationsTable = ({
       </tbody>
       <tfoot>
         <tr>
-          <td colSpan="4" style={{ textAlign: "right" }}>
+          <td colSpan={4} style={{ textAlign: "right" }}>
             Bonificaciones aplicadas:
             <NumberFormat
               value={totalBonifications}
@@ -104,14 +123,17 @@ const BonificationsTable = ({
               suffix=" %"
               decimalScale={2}
               fixedDecimalScale={true}
-              renderText={(value, props) => (
+              renderText={(
+                value: string
+                // props: object | null
+              ): React.ReactNode => (
                 <span
                   style={{
                     fontWeight: "bold",
                     color: "green",
                     marginLeft: "10px",
                   }}
-                  {...props}
+                  // {...props}
                 >
                   {value}
                 </span>
