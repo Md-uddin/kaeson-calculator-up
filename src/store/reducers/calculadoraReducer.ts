@@ -1,6 +1,18 @@
+import { bonificationType } from "types/commonTypes";
 import * as types from "../types";
+export interface initialStateTypes {
+  price: number;
+  percentage: number;
+  years: number;
+  minInterest: number;
+  maxInterest: number;
+  quoteFirstYear: number;
+  quoteRestYears: number;
+  expenses: Array<Omit<bonificationType, "active">>;
+  bonifications: Array<bonificationType>;
+}
 
-const initialState = {
+const initialState: initialStateTypes = {
   price: 170000,
   percentage: 80,
   years: 25,
@@ -84,7 +96,7 @@ const initialState = {
   ],
 };
 
-const breedReducer = (state = initialState, action) => {
+const breedReducer = (state = initialState, action: any) => {
   switch (action.type) {
     case types.SET_PRICE:
       return {

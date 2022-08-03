@@ -1,7 +1,20 @@
 import React from "react";
 import withSimulator from "hoc/withSimulator";
 import NumberFormat from "react-number-format";
+import { bonificationFunction } from "types/commonTypes";
 
+type simulationDataTypes = {
+  price: number;
+  setPrice: bonificationFunction;
+  percentage: number;
+  setPercentage: bonificationFunction;
+  years: number;
+  setYears: bonificationFunction;
+  minInterest: number;
+  setMinInterest: bonificationFunction;
+  maxInterest: number;
+  setMaxInterest: bonificationFunction;
+};
 const SimulationData = ({
   price,
   setPrice,
@@ -13,7 +26,7 @@ const SimulationData = ({
   setMinInterest,
   maxInterest,
   setMaxInterest,
-}) => {
+}: simulationDataTypes) => {
   return (
     <section className="simulation">
       <h2 className="font-bold text-2xl">Información básica</h2>

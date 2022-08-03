@@ -10,6 +10,7 @@ interface BonifcationsProps {
   removeBonification: bonificationFunction;
   updateBonification: bonificationFunction;
   totalBonifications: number;
+
 }
 
 const BonificationsTable: FC<BonifcationsProps> = ({
@@ -18,6 +19,7 @@ const BonificationsTable: FC<BonifcationsProps> = ({
   removeBonification,
   totalBonifications,
   updateBonification,
+  
 }) => {
   if (!bonifications.length) {
     return <div>No hay bonificaciones en la lista</div>;

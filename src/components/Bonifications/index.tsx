@@ -9,7 +9,7 @@ const Bonifications = () => {
     <section className="bonifications">
       <h2 className="font-bold text-2xl">Vinculaciones y bonificaciones</h2>
       <div className="bg-white bonificationWrapper">
-        <BonificationsTable />
+        <BonificationsTable  />
       </div>
       <BonificationsCreate />
     </section>
