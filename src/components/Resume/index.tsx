@@ -4,15 +4,14 @@ import NumberFormat from "react-number-format";
 import { initialStateTypes } from "store/reducers/calculadora";
 
 type ResumeTypes = {
-  price: initialStateTypes['price'];
-  percentage: initialStateTypes['percentage'];
-  years: initialStateTypes['years'];
-  quoteFirstYear: initialStateTypes['quoteFirstYear'];
-  quoteRestYears: initialStateTypes['quoteRestYears'];
+  price: initialStateTypes["price"];
+  percentage: initialStateTypes["percentage"];
+  years: initialStateTypes["years"];
+  quoteFirstYear: initialStateTypes["quoteFirstYear"];
+  quoteRestYears: initialStateTypes["quoteRestYears"];
   totalBonifications: number;
-  totalExpenses: number; 
+  totalExpenses: number;
 };
-
 
 const Resume = ({
   price,
@@ -32,6 +31,15 @@ const Resume = ({
     const totalPaid = quoteRestYears * ((years - 1) * 12);
     return totalPaid;
   };
+  console.log(
+    { price },
+    { percentage },
+    { years },
+    { quoteFirstYear },
+    { quoteRestYears },
+    { totalBonifications },
+    { totalExpenses }
+  );
 
   return (
     <>
