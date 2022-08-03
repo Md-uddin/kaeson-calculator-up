@@ -38,7 +38,9 @@ const Resume = ({
     { quoteFirstYear },
     { quoteRestYears },
     { totalBonifications },
-    { totalExpenses }
+    { totalExpenses },
+    getTotalPaidFirstYear(),
+    getTotalPaidRestYears()
   );
 
   return (
@@ -76,7 +78,7 @@ const Resume = ({
             decimalScale={2}
             fixedDecimalScale={true}
             renderText={(value) => (
-              <div className="text-bold text-green-500 text-xl">{value}</div>
+              <div className="text-bold text-green-800 text-xl">{value}</div>
             )}
           />
         </div>

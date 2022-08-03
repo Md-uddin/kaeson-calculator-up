@@ -5,15 +5,15 @@ import { bonificationFunction } from "types/commonTypes";
 import { initialStateTypes } from "store/reducers/calculadora";
 
 type simulationDataTypes = {
-  price: initialStateTypes['price']
+  price: initialStateTypes["price"];
   setPrice: bonificationFunction<number>;
-  percentage: initialStateTypes['percentage']
+  percentage: initialStateTypes["percentage"];
   setPercentage: bonificationFunction<number>;
-  years: initialStateTypes['years']
+  years: initialStateTypes["years"];
   setYears: bonificationFunction<number>;
-  minInterest: initialStateTypes['minInterest']
+  minInterest: initialStateTypes["minInterest"];
   setMinInterest: bonificationFunction<number>;
-  maxInterest: initialStateTypes['maxInterest']
+  maxInterest: initialStateTypes["maxInterest"];
   setMaxInterest: bonificationFunction<number>;
 };
 const SimulationData = ({
@@ -54,7 +54,7 @@ const SimulationData = ({
             </div>
             <NumberFormat
               value={price}
-              onValueChange={(values) => setPrice(parseInt(values.value))}
+              onValueChange={(values) => setPrice(parseFloat(values.value))}
               displayType={"input"}
               thousandSeparator="."
               decimalSeparator=","
@@ -81,7 +81,9 @@ const SimulationData = ({
             </div>
             <NumberFormat
               value={percentage}
-              onValueChange={(values) => setPercentage(parseInt(values.value))}
+              onValueChange={(values) =>
+                setPercentage(parseFloat(values.value))
+              }
               displayType={"input"}
               thousandSeparator="."
               decimalSeparator=","
@@ -109,7 +111,7 @@ const SimulationData = ({
             </div>
             <NumberFormat
               value={years}
-              onValueChange={(values) => setYears(parseInt(values.value))}
+              onValueChange={(values) => setYears(parseFloat(values.value))}
               displayType={"input"}
               thousandSeparator="."
               decimalSeparator=","
@@ -137,7 +139,9 @@ const SimulationData = ({
             </div>
             <NumberFormat
               value={minInterest}
-              onValueChange={(values) => setMinInterest(parseInt(values.value))}
+              onValueChange={(values) =>
+                setMinInterest(parseFloat(values.value))
+              }
               displayType={"input"}
               thousandSeparator="."
               decimalSeparator=","
@@ -167,7 +171,9 @@ const SimulationData = ({
             </div>
             <NumberFormat
               value={maxInterest}
-              onValueChange={(values) => setMaxInterest(parseInt(values.value))}
+              onValueChange={(values) =>
+                setMaxInterest(parseFloat(values.value))
+              }
               displayType={"input"}
               thousandSeparator="."
               decimalSeparator=","

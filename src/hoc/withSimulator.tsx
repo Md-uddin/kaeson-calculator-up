@@ -69,9 +69,9 @@ const withSimulator = (WrappedComponent: any) => {
         const quote =
           (C * percentInterest) /
           (1 - Math.pow(1 + percentInterest, -numQuotes));
-
+        console.log(parseFloat(quote.toFixed(2)));
         setQuoteFirstYear &&
-          setQuoteFirstYear(parseInt(quote.toFixed(decimalPrecision)));
+          setQuoteFirstYear(parseFloat(quote.toFixed(decimalPrecision)));
       }
     };
 
@@ -87,7 +87,7 @@ const withSimulator = (WrappedComponent: any) => {
           (1 - Math.pow(1 + percentInterest, -numQuotes));
 
         setQuoteRestYears &&
-          setQuoteRestYears(parseInt(quote.toFixed(decimalPrecision)));
+          setQuoteRestYears(parseFloat(quote.toFixed(decimalPrecision)));
       }
     };
 
@@ -100,7 +100,7 @@ const withSimulator = (WrappedComponent: any) => {
           }
           return acc;
         }, 0);
-      return bonificationsValue ? parseInt(bonificationsValue.toFixed(2)) : 0;
+      return bonificationsValue ? parseFloat(bonificationsValue.toFixed(2)) : 0;
     };
 
     return <WrappedComponent {...props} />;
