@@ -2,6 +2,16 @@ import React from "react";
 import withSimulator from "hoc/withSimulator";
 import NumberFormat from "react-number-format";
 
+type ResumeTypes = {
+  price: number;
+  percentage: number;
+  years: number;
+  quoteFirstYear: number;
+  quoteRestYears: number;
+  totalBonifications: number;
+  totalExpenses: number;
+};
+
 const Resume = ({
   price,
   percentage,
@@ -10,7 +20,7 @@ const Resume = ({
   quoteRestYears,
   totalBonifications,
   totalExpenses,
-}) => {
+}: ResumeTypes) => {
   const getTotalPaidFirstYear = () => {
     const totalPaid = quoteFirstYear * 12;
     return totalPaid;
@@ -55,10 +65,8 @@ const Resume = ({
             suffix=" €"
             decimalScale={2}
             fixedDecimalScale={true}
-            renderText={(value, props) => (
-              <div className="text-bold text-green-500 text-xl" {...props}>
-                {value}
-              </div>
+            renderText={(value) => (
+              <div className="text-bold text-green-500 text-xl">{value}</div>
             )}
           />
         </div>
@@ -75,10 +83,8 @@ const Resume = ({
             thousandSeparator="."
             suffix=" €"
             decimalScale={2}
-            renderText={(value, props) => (
-              <div className="font-bold text-orange-500 text-xl" {...props}>
-                {value}
-              </div>
+            renderText={(value) => (
+              <div className="font-bold text-orange-500 text-xl">{value}</div>
             )}
           />
         </div>
@@ -130,11 +136,7 @@ const Resume = ({
               thousandSeparator="."
               suffix=" €"
               decimalScale={2}
-              renderText={(value, props) => (
-                <div className=" font-bold" {...props}>
-                  {value}
-                </div>
-              )}
+              renderText={(value) => <div className=" font-bold">{value}</div>}
             />
             <NumberFormat
               value={getTotalPaidFirstYear() + getTotalPaidRestYears() - 140000}
@@ -143,10 +145,8 @@ const Resume = ({
               thousandSeparator="."
               suffix=" €"
               decimalScale={2}
-              renderText={(value, props) => (
-                <div className="text-red-500 text-xs text-right" {...props}>
-                  +{value}
-                </div>
+              renderText={(value) => (
+                <div className="text-red-500 text-xs text-right">+{value}</div>
               )}
             />
           </div>
