@@ -23,7 +23,6 @@ const BonificationsTable: FC<BonifcationsProps> = ({
     return <div>No hay bonificaciones en la lista</div>;
   }
 
-  console.log({});
   return (
     <table border={0} width="100%" cellSpacing="0" cellPadding="0">
       <tbody>
@@ -42,7 +41,6 @@ const BonificationsTable: FC<BonifcationsProps> = ({
                         : b;
                     }
                   );
-                  // console.log({ newBonifications });
                   selectBonification(newBonifications);
                 }}
               />
