@@ -27,8 +27,12 @@ type HocTypes = {
   price?: initialStateTypes["price"];
   minInterest?: initialStateTypes["minInterest"];
   maxInterest?: initialStateTypes["maxInterest"];
-  setQuoteFirstYear?: (params: number) => never;
-  setQuoteRestYears?: (params: number) => never;
+  setQuoteFirstYear: (
+    quoteFirstYears: initialStateTypes["quoteRestYears"]
+  ) => undefined;
+  setQuoteRestYears: (
+    quoteRestYears: initialStateTypes["quoteRestYears"]
+  ) => undefined;
   bonifications?: Array<bonificationType>;
   totalBonifications?: number;
   totalExpenses?: number;
@@ -54,7 +58,6 @@ const withSimulator = (WrappedComponent: any) => {
       calcFirstYear();
       calcRestYears();
     }, [price, percentage, years, minInterest, maxInterest, bonifications]);
-
     const calcFirstYear = () => {
       if (years && percentage && price && minInterest) {
         const numQuotes = years && years * 12;
@@ -66,9 +69,9 @@ const withSimulator = (WrappedComponent: any) => {
         const quote =
           (C * percentInterest) /
           (1 - Math.pow(1 + percentInterest, -numQuotes));
-
+        console.log(parseFloat(quote.toFixed(2)));
         setQuoteFirstYear &&
-          setQuoteFirstYear(parseInt(quote.toFixed(decimalPrecision)));
+          setQuoteFirstYear(parseFloat(quote.toFixed(decimalPrecision)));
       }
     };
 
@@ -84,7 +87,7 @@ const withSimulator = (WrappedComponent: any) => {
           (1 - Math.pow(1 + percentInterest, -numQuotes));
 
         setQuoteRestYears &&
-          setQuoteRestYears(parseInt(quote.toFixed(decimalPrecision)));
+          setQuoteRestYears(parseFloat(quote.toFixed(decimalPrecision)));
       }
     };
 
@@ -97,7 +100,7 @@ const withSimulator = (WrappedComponent: any) => {
           }
           return acc;
         }, 0);
-      return bonificationsValue ? parseInt(bonificationsValue.toFixed(2)) : 0;
+      return bonificationsValue ? parseFloat(bonificationsValue.toFixed(2)) : 0;
     };
 
     return <WrappedComponent {...props} />;
@@ -140,10 +143,10 @@ const withSimulator = (WrappedComponent: any) => {
         dispatch(setMinInterestAction(minInterest)),
       setMaxInterest: (maxInterest: initialStateTypes["maxInterest"]) =>
         dispatch(setMaxInterestAction(maxInterest)),
-      setQuoteFirstYearDispatch: (
+      setQuoteFirstYear: (
         quoteFirstYear: initialStateTypes["quoteFirstYear"]
       ) => dispatch(setQuoteFirstYearAction(quoteFirstYear)),
-      setQuoteRestYearsDispatch: (
+      setQuoteRestYears: (
         quoteRestYears: initialStateTypes["quoteRestYears"]
       ) => dispatch(setQuoteRestYearsAction(quoteRestYears)),
       addBonification: (bonification: bonificationType) =>
