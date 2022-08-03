@@ -5,5 +5,5 @@ export type bonificationType = {
   value: number;
 };
 
-export type bonificationFunction = (params: any) => never;
+export type bonificationFunction<type> = (params: type | bonificationType) => never;
 

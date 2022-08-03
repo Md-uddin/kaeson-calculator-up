@@ -1,6 +1,10 @@
 // import * as types from "../types";
 
-const errorMessageReducer = (state = null, action) => {
+import { actionsType } from "./calculadora";
+
+
+
+const errorMessageReducer = (state = null, action: actionsType) => {
   switch (action.type) {
     // case types.FETCH_BREEDS_FAILURE:
     // case types.FETCH_IMAGES_FAILURE:

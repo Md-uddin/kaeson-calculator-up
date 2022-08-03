@@ -2,10 +2,11 @@ import React from "react";
 import withSimulator from "hoc/withSimulator";
 import NumberFormat from "react-number-format";
 import { bonificationFunction, bonificationType } from "types/commonTypes";
+import { initialStateTypes } from "store/reducers/calculadora";
 
 type ExpensesDataTypes = {
   expenses: Array<bonificationType>;
-  updateExpense: bonificationFunction;
+  updateExpense: bonificationFunction<initialStateTypes['expenses'][0] | {}>;
 };
 const ExpensesData = ({ expenses, updateExpense }: ExpensesDataTypes) => {
   return (

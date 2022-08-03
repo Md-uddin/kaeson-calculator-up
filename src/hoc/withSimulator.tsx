@@ -16,19 +16,25 @@ import {
   updateExpense as updateExpenseAction,
   updateBonification as updateBonificationAction,
 } from "store/actions/calculadoraActions";
-import { initialStateTypes } from "store/reducers/calculadoraReducer";
-import { bonificationFunction, bonificationType } from "types/commonTypes";
+import { initialStateTypes } from "store/reducers/calculadora";
+
+import { bonificationType } from "types/commonTypes";
 
 const decimalPrecision = 2;
 type HocTypes = {
-  years?: number;
-  percentage?: number;
-  price?: number;
-  minInterest?: number;
-  maxInterest?: number;
-  setQuoteFirstYear?: (params: string) => never;
-  setQuoteRestYears?: (params: string) => never;
+  years?: initialStateTypes["years"];
+  percentage?: initialStateTypes["percentage"];
+  price?: initialStateTypes["price"];
+  minInterest?: initialStateTypes["minInterest"];
+  maxInterest?: initialStateTypes["maxInterest"];
+  setQuoteFirstYear?: (params: number) => never;
+  setQuoteRestYears?: (params: number) => never;
   bonifications?: Array<bonificationType>;
+  totalBonifications?: number;
+  totalExpenses?: number;
+  expenses: initialStateTypes["expenses"];
+  quoteFirstYear: initialStateTypes["quoteFirstYear"];
+  quoteRestYears: initialStateTypes["quoteRestYears"];
 };
 
 const withSimulator = (WrappedComponent: any) => {
@@ -61,7 +67,8 @@ const withSimulator = (WrappedComponent: any) => {
           (C * percentInterest) /
           (1 - Math.pow(1 + percentInterest, -numQuotes));
 
-        setQuoteFirstYear && setQuoteFirstYear(quote.toFixed(decimalPrecision));
+        setQuoteFirstYear &&
+          setQuoteFirstYear(parseInt(quote.toFixed(decimalPrecision)));
       }
     };
 
@@ -76,26 +83,27 @@ const withSimulator = (WrappedComponent: any) => {
           (balance * percentInterest) /
           (1 - Math.pow(1 + percentInterest, -numQuotes));
 
-        setQuoteRestYears && setQuoteRestYears(quote.toFixed(decimalPrecision));
+        setQuoteRestYears &&
+          setQuoteRestYears(parseInt(quote.toFixed(decimalPrecision)));
       }
     };
 
     const getTotalBonifications = () => {
       const bonificationsValue =
         bonifications &&
-        bonifications.reduce((acc: any, bonification: bonificationType) => {
+        bonifications.reduce((acc: number, bonification: bonificationType) => {
           if (bonification.active) {
             return acc + bonification.value;
           }
           return acc;
         }, 0);
-      return bonificationsValue.toFixed(2);
+      return bonificationsValue ? parseInt(bonificationsValue.toFixed(2)) : 0;
     };
 
     return <WrappedComponent {...props} />;
   };
   ////////
-  const mapStateToProps = (state: any) => {
+  const mapStateToProps = (state: { calculadora: initialStateTypes }) => {
     const { calculadora } = state;
 
     const bonificationsValue = calculadora.bonifications.reduce(
@@ -120,20 +128,24 @@ const withSimulator = (WrappedComponent: any) => {
     };
   };
 
-  const mapStateToDispatch = (dispatch: any) => {
+  const mapStateToDispatch = (dispatch: (prams: any) => undefined) => {
     return {
-      setPrice: (price: number) => dispatch(setPriceAction(price)),
-      setPercentage: (percentage: number) =>
+      setPrice: (price: initialStateTypes["price"]) =>
+        dispatch(setPriceAction(price)),
+      setPercentage: (percentage: initialStateTypes["percentage"]) =>
         dispatch(setPercentageAction(percentage)),
-      setYears: (years: number) => dispatch(setYearsAction(years)),
-      setMinInterest: (minInterest: number) =>
+      setYears: (years: initialStateTypes["years"]) =>
+        dispatch(setYearsAction(years)),
+      setMinInterest: (minInterest: initialStateTypes["minInterest"]) =>
         dispatch(setMinInterestAction(minInterest)),
-      setMaxInterest: (maxInterest: number) =>
+      setMaxInterest: (maxInterest: initialStateTypes["maxInterest"]) =>
         dispatch(setMaxInterestAction(maxInterest)),
-      setQuoteFirstYear: (quoteFirstYear: number) =>
-        dispatch(setQuoteFirstYearAction(quoteFirstYear)),
-      setQuoteRestYears: (quoteRestYears: number) =>
-        dispatch(setQuoteRestYearsAction(quoteRestYears)),
+      setQuoteFirstYearDispatch: (
+        quoteFirstYear: initialStateTypes["quoteFirstYear"]
+      ) => dispatch(setQuoteFirstYearAction(quoteFirstYear)),
+      setQuoteRestYearsDispatch: (
+        quoteRestYears: initialStateTypes["quoteRestYears"]
+      ) => dispatch(setQuoteRestYearsAction(quoteRestYears)),
       addBonification: (bonification: bonificationType) =>
         dispatch(addBonificationAction(bonification)),
       selectBonification: (bonification: bonificationType) =>

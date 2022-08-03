@@ -10,8 +10,8 @@
     "@types/react": "^18.0.15",
     "@types/react-dom": "^18.0.6",
     "js-to-ts-converter": "^0.18.2",
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-number-format": "^4.8.0",
     "react-redux": "^7.2.6",
     "react-scripts": "^5.0.1",
@@ -47,6 +47,9 @@
     ]
   },
   "devDependencies": {
+    "@types/react-redux": "^7.1.24",
+    "@types/redux": "^3.6.0",
+    "@types/redux-thunk": "^2.1.0",
     "@types/uuid": "^8.3.4",
     "autoprefixer": "^10.4.8",
     "postcss": "^8.4.14",

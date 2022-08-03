@@ -1,16 +1,18 @@
 import React from "react";
 import withSimulator from "hoc/withSimulator";
 import NumberFormat from "react-number-format";
+import { initialStateTypes } from "store/reducers/calculadora";
 
 type ResumeTypes = {
-  price: number;
-  percentage: number;
-  years: number;
-  quoteFirstYear: number;
-  quoteRestYears: number;
+  price: initialStateTypes['price'];
+  percentage: initialStateTypes['percentage'];
+  years: initialStateTypes['years'];
+  quoteFirstYear: initialStateTypes['quoteFirstYear'];
+  quoteRestYears: initialStateTypes['quoteRestYears'];
   totalBonifications: number;
-  totalExpenses: number;
+  totalExpenses: number; 
 };
+
 
 const Resume = ({
   price,
