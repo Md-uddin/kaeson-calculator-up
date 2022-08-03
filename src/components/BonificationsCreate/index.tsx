@@ -7,7 +7,7 @@ import { bonificationFunction, bonificationType } from "types/commonTypes";
 
 ///types
 
-const BonificationsCreate = ({ addBonification }:{addBonification:bonificationFunction}) => {
+const BonificationsCreate = ({ addBonification }:{addBonification:bonificationFunction<bonificationType>}) => {
   const initialState: bonificationType = {
     key: uuidv4(),
     name: null,

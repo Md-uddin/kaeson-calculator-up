@@ -6,11 +6,10 @@ import { bonificationFunction, bonificationType } from "types/commonTypes";
 //////types
 interface BonifcationsProps {
   bonifications: Array<bonificationType>;
-  selectBonification: bonificationFunction;
-  removeBonification: bonificationFunction;
-  updateBonification: bonificationFunction;
+  selectBonification: bonificationFunction<bonificationType[]>;
+  removeBonification: bonificationFunction<bonificationType[]>;
+  updateBonification: bonificationFunction<bonificationType[]>;
   totalBonifications: number;
-
 }
 
 const BonificationsTable: FC<BonifcationsProps> = ({
@@ -19,7 +18,6 @@ const BonificationsTable: FC<BonifcationsProps> = ({
   removeBonification,
   totalBonifications,
   updateBonification,
-  
 }) => {
   if (!bonifications.length) {
     return <div>No hay bonificaciones en la lista</div>;
