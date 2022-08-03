@@ -1,6 +1,6 @@
 // import * as types from "../types";
 
-const errorMessageReducer = (state = null, action) => {
+const errorMessageReducer = (state = null, action:any) => {
   switch (action.type) {
     // case types.FETCH_BREEDS_FAILURE:
     // case types.FETCH_IMAGES_FAILURE:
