@@ -3,14 +3,18 @@ import { v4 as uuidv4 } from "uuid";
 import NumberFormat from "react-number-format";
 import withSimulator from "hoc/withSimulator";
 import "./styles.css";
+import { bonificationFunction, bonificationType } from "types/commonTypes";
 
-const BonificationsCreate = ({ addBonification }) => {
-  const initialState = {
+///types
+
+const BonificationsCreate = ({ addBonification }:{addBonification:bonificationFunction}) => {
+  const initialState: bonificationType = {
     key: uuidv4(),
     name: null,
     value: 0,
     active: true,
   };
+
 
   const [bonification, setBonification] = useState(initialState);
 
@@ -29,7 +33,7 @@ const BonificationsCreate = ({ addBonification }) => {
         <input
           type="text"
           placeholder="Descripción bonificación"
-          defaultValue={bonification.name}
+          defaultValue={bonification.name || ""}
           onChange={(e) => {
             setBonification({ ...bonification, name: e.target.value });
           }}

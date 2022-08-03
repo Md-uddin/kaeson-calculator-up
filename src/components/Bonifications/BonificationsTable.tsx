@@ -1,21 +1,17 @@
 import withSimulator from "hoc/withSimulator";
 import React, { FC } from "react";
 import NumberFormat from "react-number-format";
+import { bonificationFunction, bonificationType } from "types/commonTypes";
 
+//////types
 interface BonifcationsProps {
   bonifications: Array<bonificationType>;
-  selectBonification: (param: any) => never;
-  removeBonification: (param: any) => never;
-  updateBonification: (param: any) => never;
+  selectBonification: bonificationFunction;
+  removeBonification: bonificationFunction;
+  updateBonification: bonificationFunction;
   totalBonifications: number;
 }
 
-type bonificationType = {
-  active: boolean;
-  key: string;
-  name: string;
-  value: number;
-};
 const BonificationsTable: FC<BonifcationsProps> = ({
   bonifications,
   selectBonification,
@@ -27,6 +23,7 @@ const BonificationsTable: FC<BonifcationsProps> = ({
     return <div>No hay bonificaciones en la lista</div>;
   }
 
+  console.log({});
   return (
     <table border={0} width="100%" cellSpacing="0" cellPadding="0">
       <tbody>
@@ -35,17 +32,17 @@ const BonificationsTable: FC<BonifcationsProps> = ({
             <td width="40" className="center">
               <input
                 type="checkbox"
-                name={bonification.name}
+                name={bonification.name || "loading..."}
                 checked={bonification.active}
                 onChange={() => {
                   const newBonifications = bonifications.map(
                     (b: bonificationType) => {
-                      console.log(b);
                       return b.name === bonification.name
                         ? { ...b, active: !b.active }
                         : b;
                     }
                   );
+                  // console.log({ newBonifications });
                   selectBonification(newBonifications);
                 }}
               />
